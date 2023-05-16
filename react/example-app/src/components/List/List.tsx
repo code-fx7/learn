@@ -32,3 +32,25 @@ export default function List() {
         </ul>
     );
 };
+
+// Variante 2 mit Storybook (ohne Funktion)
+
+// export interface Props {
+//     color: string;
+//     size: 'small' | 'medium' | 'large';
+// }
+
+// export default function List(color:any, size:any) {
+    
+//     const getStyle = (): React.CSSProperties => ({
+//         color: color,
+//         fontSize: size === 'large' ? '40px' : size === 'medium' ? '30px' : '20px',
+//     });
+//     return (
+//         <ul>
+//             {users.map((user) => (
+//                 <li style={getStyle()} key={user.id}>{user.name}, {user.age}</li>
+//             ))}
+//         </ul>
+//     );
+// };

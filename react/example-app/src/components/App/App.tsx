@@ -27,10 +27,8 @@ function App() {
   const displayAction = false;
   return (
     <div className="container">
-        <h1 id={greeting}>Hello, World</h1>
-        {displayAction && <p>I am writing JSX</p>}
         <Instructions />
-        <Welcome name="Max"/>
+        <Welcome name="Hans Wurst" />
         <Counter />
         <Login />
         <List />

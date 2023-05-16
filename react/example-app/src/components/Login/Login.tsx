@@ -49,13 +49,13 @@ return (
     <div>
         {login && (
             <div>
-                <p>Hier kannst du diech abmelden</p>
+                <p>Hier kannst du dich abmelden</p>
                 <button onClick={handleLogin}>Logout</button>
             </div>
         )}
         {!login && (
             <div>
-                <p>Hier kannst du dich abmelden</p>
+                <p>Hier kannst du dich anmelden</p>
                 <button onClick={handleLogin}>Login</button>
             </div>
         )}

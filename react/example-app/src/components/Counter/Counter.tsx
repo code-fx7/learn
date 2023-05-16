@@ -31,7 +31,7 @@ export default function Counter() {
         setCount(count +1)
     };
 
-    const handleTextField = (event) => {
+    const handleTextField = (event:any) => {
         setText(event.target.value);
     }
     return (

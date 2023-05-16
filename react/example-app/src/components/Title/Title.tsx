@@ -6,7 +6,7 @@ export interface Props {
      */
     children: string;
     /**
-     * The color of the totle.
+     * The color of the title.
      */
     color: string;
     /**

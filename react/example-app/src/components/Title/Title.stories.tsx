@@ -1,4 +1,3 @@
-import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import Title, { Props } from './Title';
 
@@ -14,17 +13,17 @@ const Template: Story<Props> = (args) => (
 export const Large = Template.bind({});
 Large.args = {
     size: 'large',
-    children: 'Example title',
+    children: 'Large title',
 };
 
 export const Medium = Template.bind({});
 Medium.args = {
     size: 'medium',
-    children: 'Example title',
+    children: 'Medium title',
 };
 
 export const Small = Template.bind({});
 Small.args = {
     size: 'small',
-    children: 'Example title',
+    children: 'Small title',
 };
