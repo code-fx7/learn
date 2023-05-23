@@ -1,0 +1,21 @@
+{
+    "anzeigenreport": [
+        {
+            "anzeigen":
+            [
+                {
+                    "year": "2019/2020",
+                    "gesamt": 90
+                },
+                {
+                    "year": "2020/2021",
+                    "gesamt": 120
+                },
+                {
+                    "year": "2021/2022",
+                    "gesamt": 150
+                }
+            ]
+        }
+    ]
+}
