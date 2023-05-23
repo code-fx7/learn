@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dynamic Chart with Data Structures and Checkboxes in Chart JS
+    </title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      .chartMenu {
+        width: 100vw;
+        height: 40px;
+        background: #1A1A1A;
+        color: rgba(54, 162, 235, 1);
+      }
+      .chartMenu p {
+        padding: 10px;
+        font-size: 20px;
+      }
+      .chartCard {
+        width: 100vw;
+        height: calc(100vh - 40px);
+        background: rgba(54, 162, 235, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .chartBox {
+        width: 700px;
+        padding: 20px;
+        border-radius: 20px;
+        border: solid 3px rgba(54, 162, 235, 1);
+        background: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chartMenu">
+      <p>WWW.CHARTJS3.COM (Chart JS <span id="chartVersion"></span>)</p>
+    </div>
+    <div class="chartCard">
+      <div class="chartBox">
+        <canvas id="myChart"></canvas>
+        <select onchange="yearData(this)">
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+        </select>
+        <input type="checkbox" checked="" value="0" onclick="updateChart(this)"> Sales
+        <input type="checkbox" checked="" value="1" onclick="updateChart(this)"> Cost
+        <input type="checkbox" checked="" value="2" onclick="updateChart(this)"> Profit
+      </div>
+    </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+    <script>
+    // setup 
+    const data = {
+      //labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+      datasets: [{
+        label: 'Weekly of Sales',
+        data: [
+            {x: 'Mon', 2019: 10, 2020: 15, 2021: 20},
+            {x: 'Tue', 2019: 12, 2020: 20, 2021: 25},
+            {x: 'Wed', 2019: 14, 2020: 22, 2021: 30},
+            {x: 'Thu', 2019: 17, 2020: 24, 2021: 31},
+            {x: 'Fri', 2019: 20, 2020: 27, 2021: 33}
+        ],
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 1
+      },{
+        label: 'Weekly of Cost',
+        data: [
+            {x: 'Mon', 2019: 10, 2020: 15, 2021: 10},
+            {x: 'Tue', 2019: 9, 2020: 7, 2021: 20},
+            {x: 'Wed', 2019: 7, 2020: 10, 2021: 10},
+            {x: 'Thu', 2019: 5, 2020: 12, 2021: 20},
+            {x: 'Fri', 2019: 3, 2020: 15, 2021: 10}
+        ],
+        backgroundColor: 'rgba(255, 26, 104, 0.2)',
+        borderColor: 'rgba(255, 26, 104, 1)',
+        borderWidth: 1
+      },{
+        label: 'Weekly of Profit',
+        data: [
+            {x: 'Mon', 2019: 20, 2020: 20, 2021: 35},
+            {x: 'Tue', 2019: 30, 2020: 15, 2021: 20},
+            {x: 'Wed', 2019: 30, 2020: 20, 2021: 15},
+            {x: 'Thu', 2019: 20, 2020: 15, 2021: 25},
+            {x: 'Fri', 2019: 25, 2020: 20, 2021: 50}
+        ],
+        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 1
+      }]
+    };
+
+    // config 
+    const config = {
+      type: 'bar',
+      data,
+      options: {
+        parsing: {
+            xAxisKey: 'x',
+            yAxisKey: '2019'
+        },
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    };
+
+    // render init block
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+
+    function yearData(year) {
+        myChart.config.options.parsing.yAxisKey = year.value;
+        myChart.update();
+    }
+
+    function updateChart(dataset) {
+        const isDataShown = myChart.isDatasetVisible(dataset.value);
+        if(isDataShown === false) {
+            myChart.show(dataset.value);
+        }
+        if(isDataShown === true) {
+            myChart.hide(dataset.value);
+        }
+    }
+
+    // Instantly assign Chart.js version
+    const chartVersion = document.getElementById('chartVersion');
+    chartVersion.innerText = Chart.version;
+    </script>
+
+  </body>
+</html>
