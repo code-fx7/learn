@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>How to Create two Dropdown Options with Data Structures in Chart js
+    </title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      .chartMenu {
+        width: 100vw;
+        height: 40px;
+        background: #1A1A1A;
+        color: rgba(54, 162, 235, 1);
+      }
+      .chartMenu p {
+        padding: 10px;
+        font-size: 20px;
+      }
+      .chartCard {
+        width: 100vw;
+        height: calc(100vh - 40px);
+        background: rgba(54, 162, 235, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .chartBox {
+        width: 700px;
+        padding: 20px;
+        border-radius: 20px;
+        border: solid 3px rgba(54, 162, 235, 1);
+        background: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chartMenu">
+    </div>
+    <div class="chartCard">
+      <div class="chartBox">
+        <canvas id="myChart"></canvas>
+        <select id="year" onchange="changeFinancials()">
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+        </select>
+
+        <select id="financial" onchange="changeFinancials()">
+            <option value="cost">cost</option>
+            <option value="sales">sales</option>
+            <option value="profit">profit</option>
+        </select>
+      </div>
+    </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+    <script>
+    // setup 
+    const data = {
+      //labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+      datasets: [{
+        label: 'Weekly Sales',
+        //data: [18, 12, 6, 9, 12, 3, 9],
+        data: [
+            { id: 'Mon', financials: {
+                2020: { cost: 10, sales: 90, profit: 100 },
+                2021: { cost: 100, sales: 33, profit: 666 },
+                2022: { cost: 44, sales: 66, profit: 333 },
+            }
+             },
+            { id: 'Tue', financials: {
+                2020: { cost: 3, sales: 90, profit: 999 },
+                2021: { cost: 6, sales: 33, profit: 111 },
+                2022: { cost: 9, sales: 66, profit: 444 },
+            }
+             },
+            { id: 'Wed', financials: {
+                2020: { cost: 1, sales: 54, profit: 123 },
+                2021: { cost: 2, sales: 12, profit: 124 },
+                2022: { cost: 3, sales: 18, profit: 125 },
+            }
+            },
+            { id: 'Thu', financials: {
+                2020: { cost: 1, sales: 44, profit: 100 },
+                2021: { cost: 2, sales: 89, profit: 666 },
+                2022: { cost: 3, sales: 12, profit: 333 },
+            }
+            },
+            { id: 'Fri', financials: {
+                2020: { cost: 1, sales: 12, profit: 122 },
+                2021: { cost: 2, sales: 13, profit: 453 },
+                2022: { cost: 3, sales: 14, profit: 876 },
+            }
+            },
+            { id: 'Sat', financials: {
+                2020: { cost: 1, sales: 90, profit: 345 },
+                2021: { cost: 2, sales: 33, profit: 434 },
+                2022: { cost: 3, sales: 66, profit: 455 },
+            }
+            },
+            { id: 'Sun', financials: {
+                2020: { cost: 1, sales: 57, profit: 987 },
+                2021: { cost: 2, sales: 33, profit: 977 },
+                2022: { cost: 3, sales: 66, profit: 666 },
+            }
+        }
+        ],
+        backgroundColor: [
+          'rgba(255, 26, 104, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(0, 0, 0, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255, 26, 104, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(0, 0, 0, 1)'
+        ],
+        borderWidth: 1
+      }]
+    };
+
+    // config 
+    const config = {
+      type: 'bar',
+      data,
+      options: {
+        parsing: {
+            xAxisKey: 'id',
+            yAxisKey: 'financials.2020.cost'
+        },
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    };
+
+    // render init block
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+
+    function changeFinancials(){
+        const year = document.getElementById('year').value;
+        const financial = document.getElementById('financial').value;
+
+        myChart.config.options.parsing.yAxisKey = `financials.${year}.${financial}`;
+        myChart.update();
+    }
+
+    // Instantly assign Chart.js version
+    const chartVersion = document.getElementById('chartVersion');
+    chartVersion.innerText = Chart.version;
+    </script>
+
+  </body>
+</html>
