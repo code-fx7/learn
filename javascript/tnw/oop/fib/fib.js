@@ -17,8 +17,6 @@
 
 // mit Cache
 
-const cache = [ 1, 1 ];
-
 const fib = function (n) {
     const index = n - 1;
 
@@ -32,5 +30,7 @@ const fib = function (n) {
 
     return result;
 };
+
+fib.cache = [ 1, 1];
 
 console.log(fib(45));
