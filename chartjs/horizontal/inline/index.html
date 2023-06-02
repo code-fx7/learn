@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Getting Started with Chart JS with www.chartjs3.com</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      .chartMenu {
+        width: 100vw;
+        height: 40px;
+        background: #1A1A1A;
+        color: rgba(54, 162, 235, 1);
+      }
+      .chartMenu p {
+        padding: 10px;
+        font-size: 20px;
+      }
+      .chartCard {
+        width: 100vw;
+        height: calc(100vh - 40px);
+        background: rgba(54, 162, 235, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .chartBox {
+        width: 700px;
+        padding: 20px;
+        border-radius: 20px;
+        border: solid 3px rgba(54, 162, 235, 1);
+        background: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chartMenu">
+    </div>
+    <div class="chartCard">
+      <div class="chartBox">
+        <canvas id="myChart"></canvas>
+      </div>
+    </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+    <script>
+    const years = ['SJ 2019/20', 'SJ 2020/21', 'SJ 2021/22'];
+    const haft = [28, 39, 18];
+    const auflagen = [408, 286, 381];
+    const verfahren = [636, 563, 832];
+    const anhoerungen = [738, 642, 966];
+    const anzeigen = [924, 717, 1050];
+
+    const ahndungen = years.map((year, index) => {
+        let yearObject = {};
+        yearObject.year = year;
+        yearObject.ahndungen = {};
+        yearObject.ahndungen.haft = haft[index];
+        // yearObject.ahndungen.auflagen = auflagen[index];
+        // yearObject.ahndungen.verfahren = verfahren[index];
+        // yearObject.ahndungen.anhoerungen = anhoerungen[index];
+        // yearObject.ahndungen.anzeigen = anzeigen[index];
+
+        return yearObject;
+    })
+    // setup 
+    const data = {
+      labels: years,
+      datasets: [{
+        label: "SJ 2019/20",
+        data: yearObject.ahndungen.haft,
+        backgroundColor: [
+          'rgba(255, 26, 104, 0.2)',
+
+        ],
+        borderColor: [
+          'rgba(255, 26, 104, 1)',
+
+        ],
+        borderWidth: 1,
+      },
+      {
+        label: "SJ 2020/21",
+        data: ahndungen,
+        backgroundColor: [
+          'rgba(255, 26, 104, 0.2)',
+
+        ],
+        borderColor: [
+          'rgba(255, 26, 104, 1)',
+
+        ],
+        borderWidth: 1,
+      },{
+        label: "SJ 2021/22",
+        data: ahndungen,
+        backgroundColor: [
+          'rgba(255, 26, 104, 0.2)',
+
+        ],
+        borderColor: [
+          'rgba(255, 26, 104, 1)',
+
+        ],
+        borderWidth: 1,
+      }]
+    };
+
+    // config 
+    const config = {
+      type: 'bar',
+      data,
+      options: {
+    indexAxis: 'y',
+    elements: {
+      bar: {
+        borderWidth: 2,
+      }
+    },
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+        display: true
+      },
+      title: {
+        display: true,
+        text: 'Entwicklung von Ahndungen'
+      }
+    }
+  },
+    };
+
+    // render init block
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+
+    // Instantly assign Chart.js version
+    const chartVersion = document.getElementById('chartVersion');
+    chartVersion.innerText = Chart.version;
+    </script>
+
+  </body>
+</html>

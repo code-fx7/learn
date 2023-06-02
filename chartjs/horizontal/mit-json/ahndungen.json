@@ -1,0 +1,18 @@
+{
+    "ahndungsreport": [
+        {
+            "ahndungen":
+            [
+                {
+                "year": "SJ 2019/20",
+                "erzwingungshaft": 28,
+                "arbeitsauflagen": 408,
+                "bußgeldverfahren": 636,
+                "anhörungen": 738,
+                "anzeigen": 924
+                }
+            ]
+        }
+
+    ]
+}

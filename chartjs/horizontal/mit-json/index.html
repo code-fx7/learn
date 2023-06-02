@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Fetch and Display Advanced JSON Data in ChartJS</title>
+    <title>Ahndungen</title>
     <style>
       * {
         margin: 0;
@@ -39,12 +39,10 @@
   </head>
   <body>
     <div class="chartMenu">
-      <p>WWW.CHARTJS3.COM (Chart JS <span id="chartVersion"></span>)</p>
     </div>
     <div class="chartCard">
       <div class="chartBox">
         <canvas id="myChart"></canvas>
-        <button onclick="updateChart()">Fetch Now</button>
       </div>
     </div>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
@@ -52,45 +50,46 @@
 
     // Fetch Block
     function updateChart() {
-      async function fetchData() {
-        const url = 'finance.json';
-        const response = await fetch(url);
-        // wait until the request has been completed
-        const datapoints = await response.json();
-        console.log(datapoints);
-        return datapoints;
-      };
+        async function fetchData() {
+            const url = 'ahndungen.json';
+            const response = await fetch(url);
+            const datapoints = await response.json();
+            return datapoints;
+        };
+        fetchData().then(datapoints => {
+            const year = datapoints.ahndungsreport[0].ahndungen.map(
+                function(index){
+                    return index.year;
+                })
+            const erzwingungshaft = datapoints.ahndungsreport[0].ahndungen.map(
+                function(index){
+                    return index.erzwingungshaft;
+                })
+            const arbeitsauflagen = datapoints.ahndungsreport[0].ahndungen.map(
+                function(index){
+                    return index.arbeitsauflagen;
+                }
+            )
 
-      fetchData().then(datapoints => {
-        const month = datapoints.financialreport[0].financials.map(
-          function(index){
-            return index.date;
-          })
-        const revenue = datapoints.financialreport[0].financials.map(
-          function(index){
-            return index.revenue;
-          })
-        const companyname = datapoints.financialreport.map(
-         function(index){
-            return index.companyname;
-          })
-        console.log(month);
-        console.log(revenue);
-
-        myChart.config.data.datasets[0].label = companyname;
-        myChart.config.data.labels = month;
-        myChart.config.data.datasets[0].data = revenue;
-
-        myChart.update();
-      });
-  }
+            const anzeigen = datapoints.ahndungsreport[0].ahndungen.map(
+                function(index){
+                    return index.anzeigen;
+                })
+        
+            myChart.config.data.labels = year;
+            myChart.config.data.datasets[0].data = erzwingungshaft;
+            myChart.config.data.datasets[0].data = arbeitsauflagen;
+            myChart.config.data.datasets[0].data = anzeigen;
+            myChart.update();
+            });
+    } 
 
     // setup 
     const data = {
-      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+      //labels: ['angeordnete erzwingungshaft', 'angeordnete Arbeitsauflagen', 'Bußgeldverfahren', 'Anhörungen', 'Anzeigen'],
       datasets: [{
-        label: 'Weekly Sales',
-        data: [18, 12, 6, 9, 12, 3, 9],
+        label: ['SJ 2019/20', 'SJ 2020/21', 'SJ 2021/22'],
+        data: updateChart(),
         backgroundColor: [
           'rgba(255, 26, 104, 0.2)',
           'rgba(54, 162, 235, 0.2)',
@@ -118,12 +117,24 @@
       type: 'bar',
       data,
       options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
+    indexAxis: 'y',
+    elements: {
+      bar: {
+        borderWidth: 2,
       }
+    },
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+        display: true
+      },
+      title: {
+        display: true,
+        text: 'Entwicklung von Ahndungen'
+      }
+    }
+  },
     };
 
     // render init block
@@ -137,5 +148,5 @@
     chartVersion.innerText = Chart.version;
     </script>
 
-    </body>
-  </html>
+  </body>
+</html>
