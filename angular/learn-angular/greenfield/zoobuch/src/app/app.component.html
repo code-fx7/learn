@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="display-4">
+    {{title}}
+  </div>
+
+<hr>
+
+<div class="card">
+
+  <div class="card-header">
+    <h5>Neues Tier Hinzufügen</h5>
+  </div>
+
+  <div class="card-body">
+    <input class="form-control mb-2" type="text" [(ngModel)]="newAnimal.name">
+    <input class="form-control mb-2" type="text" [(ngModel)]="newAnimal.type">
+    <button class="btn btn-primary mb-2" (click)="addAnimal()">Hinzufügen</button>
+  </div>
+</div>
+
+<div class="card mt-4">
+
+  <div class="card-header">
+    <h5>Auflistung aller Tiere</h5>
+  </div>
+
+  <div class="card-body">
+    <div *ngFor="let animal of animals">
+      <div>
+        {{animal.name}}
+        ({{animal.type}})
+      <button class="btn btn-danger btn-sm" (click)="deleteAnimal(animal)">X</button>
+      </div>
+      <hr>
+    </div>
+  </div>
+</div>
+</div>
