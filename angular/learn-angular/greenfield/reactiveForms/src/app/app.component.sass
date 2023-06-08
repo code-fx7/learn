@@ -1,0 +1,49 @@
+$prime: #ff6e48
+$ciBlue: #00FFF1
+$ciRed: #ff00aa
+$ciGreen: #8fd3b8
+$second: #0c1016
+
+body
+  background-color: black
+
+p 
+  color: white
+
+
+form 
+  width: 30rem
+  display: flex
+  flex-direction: column
+
+  input 
+    padding: 2rem
+    border-radius: 1rem
+    color: white
+    background-color: black
+    border: none
+    margin: 0.5rem 0 0 0
+
+    &.ng-touched, &.ng-dirty
+      &.ng-invalid
+        border: red 5px solid
+
+      &.ng-valid
+        border: green 5px solid
+
+  .error 
+    color: red
+  
+
+button 
+  color: $second
+  margin: 0.5rem 0 0 0
+  padding: 2rem
+  border: none
+  border-radius: 1rem
+  background-color: $ciBlue
+
+  &:disabled 
+    opacity: 0.2
+    color: $second
+  
