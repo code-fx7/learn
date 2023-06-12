@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://unpkg.com/rxjs@%5E7/dist/bundles/rxjs.umd.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Observables</title>
+</head>
+<body>
+  <button id="the-button">Klick mich!</button>
+
+  <script>
+    const button = document.getElementById('the-button');
+
+    const observable = rxjs.Observable.create(o => {
+      button.addEventListener('click', () => {
+        o.next('button was clicked');
+      });
+    });
+    
+    observable.subscribe(value => console.log(value));
+  </script>
+  
+</body>
+</html>
