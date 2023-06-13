@@ -12,9 +12,9 @@
   <script>
     const button = document.getElementById('the-button');
 
-    const observable = rxjs.Observable.create(o => {
+    const observable = rxjs.Observable.create(observer => {
       button.addEventListener('click', () => {
-        o.next('button was clicked');
+        observer.next('button was clicked');
       });
     });
     
