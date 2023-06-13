@@ -1,0 +1,1 @@
+Zum starten npx ts-node Dateinamen im Terminal eingeben.
