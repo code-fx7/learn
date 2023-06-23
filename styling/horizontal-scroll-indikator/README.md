@@ -1,0 +1,1 @@
+https://stackblitz.com/edit/rxjs-horizontal-scroll-indicator?file=index.html,index.ts

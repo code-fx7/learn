@@ -1,0 +1,4 @@
+<div *ngIf="items$ | async as items">
+  <menu-item *ngFor="let item of items" [item]="item">
+  </menu-item>
+</div>

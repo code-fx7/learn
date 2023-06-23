@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.scss">
+  <title>Rxjs Horizontal Scroll Indicator</title>
+</head>
+<body>
+
+  <style>
+  #indication {
+  position: fixed;
+  width: 5px;
+  height: 7px;
+  background-color: #FF3366;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  z-index: 2;
+}
+  </style>
+
+  <div id="indication"></div>
+  Scroll down!
+  <div class="app" style="position: absolute; margin-top: 3000px;">Boom!</div>
+<script src="index.ts"></script>
+</body>
+</html>
