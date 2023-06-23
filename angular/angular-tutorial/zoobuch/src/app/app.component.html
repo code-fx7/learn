@@ -1,0 +1,9 @@
+<div class="container" *ngIf="myAnimals$ | async as myAnimals">
+    <app-header></app-header>
+
+    <!-- Die Events gehen zu den jeweiligen EventEmitter in den .ts Dateien. -->
+
+    <app-animal-form (addAnimal)="addAnimal($event)"></app-animal-form>
+
+    <app-animal-list [animals]="myAnimals" (delete)="deleteAnimal($event)"></app-animal-list>
+</div>

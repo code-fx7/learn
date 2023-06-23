@@ -1,0 +1,53 @@
+$prime: #ff6e48
+$ciBlue: #00FFF1
+$ciRed: #ff00aa
+$ciGreen: #46fcb4
+$second: #0c1016
+
+body 
+  background-color: black
+
+form 
+  display: flex
+  flex-direction: column
+
+  .form-array 
+    display: flex
+    flex-direction: column
+    margin: 0 0 20px 0
+    background-color: rgba(255, 255, 255, 0.1)
+    padding: 10px
+    border-radius: 10px
+  
+    input, textarea 
+      padding: 10px
+      font-size: 2rem
+      color: white
+      background-color: rgba(255, 255, 255, 0.1)
+      border: none
+      border-radius: 10px
+      margin: 0 0 20px 0
+      font-family: 'Roboto'
+    
+      &.ng-touched, &.ng-dirty
+
+        &.ng-valid 
+          border: solid 3px $ciGreen
+        
+        &.ng-invalid 
+          border: solid 3px $ciRed
+        
+  button 
+    padding: 10px 20px
+    font-size: 2rem
+    color: $second
+    background-color: $ciBlue
+    border: none
+    border-radius: 10px
+  
+    &[type="submit"] 
+    margin: 10px 0 0 0
+  
+    &:disabled 
+      opacity: 0.2
+    

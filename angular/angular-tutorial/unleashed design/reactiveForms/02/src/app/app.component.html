@@ -1,0 +1,17 @@
+<form [formGroup]="memberListForm">
+  <input type="text" placeholder="List name"
+  formControlName=""listName>
+
+  <ng-container formArrayName="memberList">
+    <ng-container *ngFor="let member of memberList.controls; let i = index">
+      <div class="form-array" [formGroupName]="i" [id]="i">
+        <input type="text" placeholder="Vorname" formControlName="vorname">
+        <input type="text" placeholder="Nachname" formControlName="nachname">
+      </div>
+  </ng-container>
+  </ng-container>
+
+  <button (click)="addMember()">Mitglied hinzufügen</button>
+
+  <button [disabled]="isDisabled()" type="submit">Submit</button>
+</form>

@@ -1,0 +1,25 @@
+<p>{{ loginForm.value | json }}</p>
+
+<form [formGroup]="loginForm">
+
+  <input formControlName="username" type="text">
+  <ng-container *ngIf="loginForm.controls['username'] as username">
+  
+  <ng-container *ngIf="username.dirty || username.touched">
+
+    <ng-container *ngIf="username.errors as errors">
+    
+    <p class="error" *ngIf="errors.required">Es muss ein Username eingegeben werden.
+    </p>
+
+    <p class="error" *ngIf="errors.minlength">Es sollten mindestens {{ errors.minlength.requiredLength }} Buchstaben geben.
+    </p>
+    </ng-container>
+  </ng-container>
+</ng-container>
+
+  <input formControlName="password" type="password">
+
+  <button [disabled]="!(loginForm.valid && (loginForm.dirty || loginForm.touched))" type="submit">Senden</button>
+
+</form>
