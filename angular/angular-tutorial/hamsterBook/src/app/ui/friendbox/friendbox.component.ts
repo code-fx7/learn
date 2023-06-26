@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input, } from '@angular/core';
 import { Hamster } from 'src/app/hamster';
 
 @Component({
@@ -8,6 +8,5 @@ import { Hamster } from 'src/app/hamster';
 })
 export class FriendboxComponent {
  @Input() myFriends: Hamster[] = [];
-
 
 }

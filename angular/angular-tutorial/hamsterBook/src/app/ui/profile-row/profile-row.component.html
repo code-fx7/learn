@@ -1,7 +1,7 @@
 <div class="profile-row margin-bottom-16">
   <img [src]="hamster.image">
    <div class="name">
-    <b><a [routerLink]="'/zielroute'">{{ hamster.name }}</a></b><br> <span class="description">{{ hamster.text }}</span>
+    <b><a [routerLink]="'/details'">{{ hamster.name }}</a></b><br> <span class="description">{{ hamster.text }}</span>
   </div>
 
   <ng-container *ngIf="canFollow">

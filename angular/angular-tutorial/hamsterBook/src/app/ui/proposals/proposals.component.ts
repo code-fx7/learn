@@ -1,8 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Hamster } from 'src/app/hamster';
 @Component({
   selector: 'app-proposals',
   templateUrl: './proposals.component.html',
   styleUrls: ['./proposals.component.scss']
 })
 
-export class ProposalsComponent {}
+export class ProposalsComponent {
+  @Input() hamsters: Array<Hamster> = [];
+}
