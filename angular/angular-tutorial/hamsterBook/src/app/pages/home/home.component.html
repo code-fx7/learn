@@ -1,0 +1,22 @@
+<div class="flexrow" *ngIf="vm$ | async as vm">
+  <div class="container">
+    <app-friendbox [myFriends]="vm.myFriends"></app-friendbox>
+    <app-hamster-card
+      *ngFor="let i of [0, 1, 2, 3]"
+      [img]="postImages[i]"
+      [text]="postTexts[i]">
+    </app-hamster-card>
+  </div>
+
+  <div>
+    <app-profile-row [canFollow]="false"></app-profile-row>
+    <app-proposals>
+      <app-profile-row 
+      *ngFor="let hamster of vm.hamsters"
+      [hamster]="hamster"
+      [canFollow]="true"
+      (follow)="addFriend(hamster)"
+      (unfollow)="removeFriend(hamster)"></app-profile-row>
+    </app-proposals>
+  </div>
+</div>
