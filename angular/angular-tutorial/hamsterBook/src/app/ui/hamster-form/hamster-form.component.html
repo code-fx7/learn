@@ -1,0 +1,11 @@
+<div>
+  <div>
+    <h5>Neuen Hamster hinzufügen</h5>
+  </div>
+
+  <div>
+    <input type="text" placeholder="Name" [(ngModel)]="newHamster.name">
+    <input type="text" placeholder="Text" [(ngModel)]="newHamster.text">
+    <button (click)="handleAdd()">Hinzufügen</button> 
+  </div>
+</div>
