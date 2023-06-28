@@ -1,0 +1,12 @@
+<div class="card">
+
+  <div class="card-header">
+    <h5>Neues Tier Hinzufügen</h5>
+  </div>
+
+  <div class="card-body">
+    <input class="form-control mb-2" type="text" placeholder="Neuer Name" [(ngModel)]="newAnimal.name">
+    <input class="form-control mb-2" type="text" placeholder="Neues Tier" [(ngModel)]="newAnimal.type">
+    <button class="btn btn-primary mb-2" (click)="handleAdd()">Hinzufügen</button>
+  </div>
+</div>
