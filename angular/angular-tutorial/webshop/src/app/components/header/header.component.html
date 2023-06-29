@@ -1,0 +1,20 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <div class="container">
+      <div>
+        <mat-icon fontIcon="home">
+        </mat-icon>
+        <span>First Five Orders on 30% Discount</span>
+      </div>
+    </div>
+    <div class="flexExpand"></div>
+    <div class="headerAuth">
+      <button mat-button [matMenuTriggerFor]="menuAuth">My Account<mat-icon>keyboard_arrow_down</mat-icon></button>
+    <mat-menu #menuAuth="matMenu">
+      <button mat-menu-item>Login</button>
+      <button mat-menu-item>Register</button>
+    </mat-menu>
+    <button mat-button>My Wishlist</button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
