@@ -1,0 +1,14 @@
+<div class="profile-row margin-bottom-16">
+  <img [src]="hamster.image">
+   <div class="name">
+    <b><a [routerLink]="'/details'">{{ hamster.name }}</a></b><br> <span class="description">{{ hamster.text }}</span>
+  </div>
+
+  <ng-container *ngIf="canFollow">
+    <a *ngIf="!hamster.isMyFriend; else alreadyFriends" (click)="handleFollow()">Folgen</a>
+  </ng-container>
+</div>
+
+<ng-template #alreadyFriends>
+  <a (click)="handleUnfollow()">Entfolgen</a>
+</ng-template>

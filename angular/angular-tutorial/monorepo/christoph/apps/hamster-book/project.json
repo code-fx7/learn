@@ -1,0 +1,122 @@
+{
+  "name": "hamster-book",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "app",
+  "sourceRoot": "apps/hamster-book/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/hamster-book",
+        "index": "apps/hamster-book/src/index.html",
+        "main": "apps/hamster-book/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/hamster-book/tsconfig.app.json",
+        "assets": [
+          "apps/hamster-book/src/favicon.ico",
+          "apps/hamster-book/src/assets"
+        ],
+        "styles": ["apps/hamster-book/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "hamster-book:build:production"
+        },
+        "development": {
+          "browserTarget": "hamster-book:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "hamster-book:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/hamster-book/**/*.ts",
+          "apps/hamster-book/**/*.html"
+        ]
+      }
+    },
+    "storybook": {
+      "executor": "@storybook/angular:start-storybook",
+      "options": {
+        "port": 4400,
+        "configDir": "apps/hamster-book/.storybook",
+        "browserTarget": "hamster-book:build",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@storybook/angular:build-storybook",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/hamster-book",
+        "configDir": "apps/hamster-book/.storybook",
+        "browserTarget": "hamster-book:build",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "hamster-book:build-storybook",
+        "staticFilePath": "dist/storybook/hamster-book"
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "hamster-book:build-storybook:ci"
+        }
+      }
+    }
+  }
+}
