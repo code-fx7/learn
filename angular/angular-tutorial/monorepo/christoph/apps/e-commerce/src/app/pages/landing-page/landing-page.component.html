@@ -1,0 +1,62 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <div class="container">
+      <div>
+        <mat-icon fontIcon="home"></mat-icon>
+        <span>First Five Orders on 30% Discount</span>
+      </div>
+      <div class="flexExpand"></div>
+      <div class="headerAuth">
+      <button mat-button [matMenuTriggerFor]="menuAuth">My Account<mat-icon>keyboard_arrow_down</mat-icon></button>
+      <mat-menu #menuAuth="matMenu">
+        <button mat-menu-item routerLink="/login">Login</button>
+        <button mat-menu-item routerLink="/register">Register</button>
+      </mat-menu>
+      <button mat-button routerLink="/wishlist">My Wishlist</button>
+      <a mat-button><mat-icon>add_shopping_cart</mat-icon>0,00 (0 Item)</a>
+    </div>
+    </div>
+  </mat-toolbar-row>
+  <mat-toolbar-row class="toolbarWhite">
+    <div class="container">
+      <h2 class="homeIcon">Ecommerce Shop</h2>
+      <span class="flexExpand"></span>
+      <div class="headerBlock">
+        <div class="blockHalf">
+          <mat-icon>perm_phone_msg</mat-icon>
+          <div class="blockhalfDetail">
+            <h3>Call us for support</h3>
+            <p>123456789</p>
+          </div>
+        </div>
+      </div>
+      <div class="blockHalf">
+        <mat-icon>directions_car</mat-icon>
+        <div class="blockhalfDetail">
+          <h3>Free Shipping</h3>
+          <p>Order above 50€</p>
+              </div>
+            </div>
+          </div>
+          <span class="flexExpand"></span>
+          <div class="headerBlockRight"></div>
+          <div class="headerBlock">
+            <div class="headerBlock">
+            <h5>Currency - </h5>
+            <button mat-button [matMenuTriggerFor]="currencyMenu"> EUR <mat-icon>keyboard_arrow_down</mat-icon></button>
+            <mat-menu #currencyMenu="matMenu">
+              <button mat-menu-item>EUR</button>
+              <button mat-menu-item>USD</button>
+            </mat-menu>
+          </div>
+          <div class="headerBlock">
+            <h5 class="secondHeader">Language - </h5>
+            <button mat-button [matMenuTriggerFor]="languageMenu"> Deutsch <mat-icon>keyboard_arrow_down</mat-icon></button>
+            <mat-menu #languageMenu="matMenu">
+              <button mat-menu-item>Deutsch</button>
+              <button mat-menu-item>English</button>
+            </mat-menu>
+          </div>
+        </div>
+  </mat-toolbar-row>
+</mat-toolbar>

@@ -1,0 +1,88 @@
+.container {
+  position: relative;
+  margin: auto;
+  text-align: center;
+  width: 900px;
+  border-radius: 15px;
+  box-shadow: 0 5px 10px #e6f0f0;
+  background-color: black;
+}
+
+.slider-top {
+  margin-top: 40px;
+}
+
+.container img {
+  display: none;
+  border-radius: 15px;
+}
+
+.container img.image-active {
+  display: block;
+  width: 100;
+  height: 500px;
+}
+
+.slider-pointer {
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.point {
+  cursor: pointer;
+  height: 14px;
+  width: 14px;
+  margin: 0 5px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: inline-block;
+  transition: 0.6s ease;
+  opacity: 0.5;
+}
+
+.active {
+  opacity: 1;
+}
+
+.btn {
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  padding: 0;
+  color: #ffffff;
+  text-align: center;
+  background: 0 0;
+  border: 0;
+  cursor: pointer;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+.icon {
+  opacity: 0.5;
+  transition: all 0.15s ease;
+}
+
+.icon:hover {
+  color: #ffffff;
+  opacity: 0.8;
+}
+.icon-prev, .icon-next {
+  font-size: 40px;
+}
