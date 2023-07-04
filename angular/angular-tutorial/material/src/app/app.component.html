@@ -1,0 +1,46 @@
+<form class="autocomplete-example">
+  <mat-form-field class="material-width" appearance="fill">
+    <mat-label>
+      Namen
+    </mat-label>
+    <input type="text" placeholder="Wähle einen Namen" matInput [matAutocomplete]="auto">
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option value="klaus">
+        Klaus
+      </mat-option>
+      <mat-option value="anna">
+        Anna
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+
+
+<article class="badge-example">
+  <p>
+    <span matBadge="7" matBadgeOverlap="false" [matBadgeHidden]="showBadge">Wir testen hier Badge Componenten</span>
+  </p>
+  <button (click)="showBadge = !showBadge">Show Badge</button>
+  <button mat-raised-button matBadge="1" matBadgeColor="warn">Badge Button</button>
+</article>
+
+
+<article class="button-example">
+  <h2>Angular Material Button</h2>
+  <button mat-stroked-button color="warn">Click Me</button>
+  <button mat-flat-button color="accent">Click Me</button>
+  <button mat-raised-button color="accent">Click Me</button>
+  <a mat-stroked-button href="#">Der Link</a>
+  
+  <button mat-icon-button color="primary">
+    <mat-icon>home</mat-icon>
+  </button>
+
+  <button mat-fab color="warn" (click)="isDisabled = !isDisabled">
+    <mat-icon>favorite</mat-icon>
+  </button>
+
+  <button mat-mini-fab color="warn" [disabled]="isDisabled">
+    <mat-icon>favorite</mat-icon>
+  </button>
+</article>
