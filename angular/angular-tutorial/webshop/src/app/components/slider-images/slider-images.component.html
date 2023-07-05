@@ -1,0 +1,22 @@
+<div class="container slider-top" *ngIf="images && images.length > 0">
+  <img [src]="image.source" alt="" *ngFor="let image of images; let i = index"
+    [ngClass]="{'image-active': index == i}">
+
+  <div class="slider-pointer">
+    <span class="point" *ngFor="let image of images; let i = index"
+    [ngClass]="{'active': index == i}"
+    (click)="chooseImage(i)">
+
+    </span>
+  </div>
+
+    <button class="btn prev" (click)="prevPicture()">
+      <fa-icon [icon]="arrowLeft" class="icon icon-prev"></fa-icon>
+      <!-- <mat-icon class="icon icon-prev">arrow_back</mat-icon> -->
+    </button>
+
+    <button class="btn next" (click)="nextPicture()">
+      <fa-icon [icon]="arrowRight" class="icon icon-next"></fa-icon>
+      <!-- <mat-icon class="icon icon-next">arrow_forward</mat-icon> -->
+    </button>
+</div>
