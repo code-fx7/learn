@@ -1,0 +1,29 @@
+<div>
+  <mat-card>
+    <mat-card-title>Register</mat-card-title>
+    
+    <mat-card-content>
+      <form [formGroup]="registerForm">
+        <mat-form-field>
+          <input matInput type="email" placeholder="Email" formArrayName="email">
+          <mat-icon>message</mat-icon>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="text" placeholder="Name" formArrayName="name">
+          <mat-icon>business_center</mat-icon>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="password" placeholder="Passwort" formArrayName="password">
+          <mat-icon>lock</mat-icon>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="password" placeholder="Passwort wiederholen" formArrayName="passwordRepeat">
+          <mat-icon>lock</mat-icon>
+        </mat-form-field>
+        <mat-card-subtitle *ngIf="wasRegisteredSuccessfully">Du wurdest erfolgreich registriert</mat-card-subtitle>
+        <button mat-raised-button color="primary" class="login-button" (click)="register()">Registrieren</button>
+        <button mat-raised-button class="login-button" routerLink="/login">Zum Login</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
