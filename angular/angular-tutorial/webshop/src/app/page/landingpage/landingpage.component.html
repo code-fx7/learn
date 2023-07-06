@@ -1,0 +1,106 @@
+<app-slider-images></app-slider-images>
+
+<app-advantages></app-advantages>
+
+<mat-tab-group dynamicHeight color="primary">
+  <mat-tab label="Newest">
+    <div fxlayout="row wrap" fxLayoutGap="10px grid" class="mat-card-container">
+      <div fxFlex="25%" *ngFor="let num of [1,2,3,4,5,6,7,8]">
+        <mat-card>
+          <mat-card-header>
+            <img mat-card-image [src]="images[0].source" alt="">
+          </mat-card-header>
+          <mat-card-content>
+            <mat-card-title>
+            <a>Buy</a>
+          </mat-card-title>
+            <mat-card-subtitle>30 €</mat-card-subtitle>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button>Buy</button>
+            <button mat-button>On Wishlist</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Bestselling">
+    <div fxlayout="row wrap" fxLayoutGap="10px grid" class="mat-card-container">
+      <div fxFlex="25%" *ngFor="let num of [1,2,3,4,5,6,7,8]">
+        <mat-card>
+          <mat-card-header>
+            <img mat-card-image [src]="images[0].source" alt="">
+          </mat-card-header>
+          <mat-card-content>
+            <mat-card-title>
+            <a>Buy</a>
+          </mat-card-title>
+            <mat-card-subtitle>30 €</mat-card-subtitle>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button>Buy</button>
+            <button mat-button>On Wishlist</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="For You">
+    <div fxlayout="row wrap" fxLayoutGap="10px grid" class="mat-card-container">
+      <div fxFlex="25%" *ngFor="let num of [1,2,3,4,5,6,7,8]">
+        <mat-card>
+          <mat-card-header>
+            <img mat-card-image [src]="images[0].source" alt="">
+          </mat-card-header>
+          <mat-card-content>
+            <mat-card-title>
+            <a>Buy</a>
+          </mat-card-title>
+            <mat-card-subtitle>30 €</mat-card-subtitle>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button>Buy</button>
+            <button mat-button>On Wishlist</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>
+
+<div class="showAll">
+  <button mat-raised-button color="primary">Show all products</button>
+</div>
+
+<div class="container">
+  <div fxLayout="row" class="imageAdvertising">
+    <mat-card fxLayoutGap="10px">
+      <img mat-card-image src="../../../assets/images/hammer.jpg" alt="Angebot">
+    </mat-card>
+    <mat-card>
+      <img mat-card-image src="../../../assets/images/hammer.jpg" alt="Angebot">
+    </mat-card>
+  </div>
+</div>
+
+<mat-toolbar color="primary" class="aboveFooterContainer">
+  <mat-toolbar-row>
+    <div class="container" fxLayout="row">
+      <div class="newsletterMessage" fxLayout="row">
+        <mat-icon fontIcon="message"></mat-icon>
+        <span>Get new offers via Email</span>
+      </div>
+      <form [formGroup]="newsletter" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+          <input type="email" matInput formControlName="newsletter" class="newsletterInput">
+          <button mat-raised-button type="submit" color="warn">Sign Up</button>
+        </mat-form-field>
+      </form>
+      <div class="icons">
+        <fa-icon [icon]="twitter"></fa-icon>
+        <fa-icon [icon]="facebook"></fa-icon>
+        <fa-icon [icon]="instagram"></fa-icon>
+      </div>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

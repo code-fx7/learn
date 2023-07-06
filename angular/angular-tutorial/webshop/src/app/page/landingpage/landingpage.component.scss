@@ -1,0 +1,97 @@
+mat-tab-group {
+  width: 900px;
+  margin: auto;
+  overflow: none;
+}
+
+mat-card {
+  cursor: pointer;
+}
+
+mat-card-header img {
+  height: 150px;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mat-card-container {
+  margin-top: 10px!important;
+}
+
+mat-card-title {
+  font-size: large;
+}
+
+mat-card-title a {
+  text-decoration: none;
+  color: black;
+}
+
+mat-card-title a:hover {
+  color: grey;
+}
+
+mat-card-subtitle {
+  color: red;
+  font-weight: bold;
+}
+
+.showAll {
+  margin-top: 20px!important;
+  margin-bottom: 20px!important;
+  margin: auto;
+  display: flex;
+}
+
+.showAll button {
+  margin: auto;
+}
+
+.container {
+  width: 900px;
+  margin: auto;
+}
+
+.container mat-card {
+  margin: 10px;
+}
+
+.aboveFooterContainer {
+  height: 80px;
+}
+
+.newsletterMessage {
+  margin-top: 20px;
+  margin-right: 50px;
+}
+
+.newsletterMessage mat-icon {
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+mat-form-field {
+  width: 400px;
+  color: #000;
+}
+
+mat-form-field input {
+  background: #fff;
+  height: 36px;
+}
+
+mat-form-field button {
+  height: 36px;
+}
+
+.icons {
+  float: right;
+  margin-left: 100px;
+  margin-top: 20px;
+}
+
+.icons fa-icon {
+  margin-right: 5px;
+
+}
