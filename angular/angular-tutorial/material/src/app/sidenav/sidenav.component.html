@@ -1,0 +1,21 @@
+<mat-sidenav class="sidenav" #sidenav>
+  <mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+      <p>Auto-resizing sidenav</p>
+    </mat-drawer>
+    <mat-nav-list>
+      <a mat-list-item><mat-icon>home</mat-icon>Home</a>
+      <a mat-list-item><mat-icon>perm_phone_msg</mat-icon>Phone</a>
+      <a mat-list-item><mat-icon>store</mat-icon>Store</a>
+      <a mat-list-item><mat-icon>directions_car</mat-icon>Shipping</a>
+    </mat-nav-list>
+  </mat-drawer-container>
+
+  <p>
+  <mat-button-toggle-group>
+    <mat-button-toggle value="bold">Bold</mat-button-toggle>
+    <mat-button-toggle value="italic">Italic</mat-button-toggle>
+    <mat-button-toggle value="underline">Underline</mat-button-toggle>
+  </mat-button-toggle-group>
+  </p>
+</mat-sidenav>
