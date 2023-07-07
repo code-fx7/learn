@@ -1,0 +1,33 @@
+<div class="example-button-container">
+  <button mat-raised-button color="primary" (click)="formControl.disable()">Disable form control</button>
+  <button mat-raised-button color="primary" (click)="formControl.enable()">Enable form control</button>
+</div>
+<p>
+  <em>Enter video keywords</em>
+</p>
+<mat-form-field class="example-form-field">
+  <mat-label>Video keywords</mat-label>
+  <mat-chip-grid #chipGrid [formControl]="formControl">
+    <mat-chip-row *ngFor="let keyword of keywords" (removed)="removeKeyword(keyword)">
+      {{keyword}}
+      <button matChipRemove>
+        <mat-icon>cancel</mat-icon>
+      </button>
+    </mat-chip-row>
+  </mat-chip-grid>
+  <input placeholder="New keyword..."
+          [matChipInputFor]="chipGrid"
+          (matChipInputTokenEnd)="add($event)"/>       
+</mat-form-field>
+
+<p>
+  <strong>The following keywords are entered:</strong> {{formControl.value}}
+</p>
+
+<hr>
+
+<mat-chip-listbox class="mat-mdc-chip-set-stacked">
+  <mat-chip-option *ngFor="let chip of availableColors" selected [color]="chip.color">
+  {{chip.name}}
+  </mat-chip-option>
+</mat-chip-listbox>
