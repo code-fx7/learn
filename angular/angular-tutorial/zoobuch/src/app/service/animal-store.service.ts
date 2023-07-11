@@ -17,13 +17,18 @@ export class AnimalStoreService {
   private myAnimalsSubject = new BehaviorSubject<Array<Animal>>(this.myAnimals);
   myAnimals$ = this.myAnimalsSubject.asObservable();
 
+  private countSubject = new BehaviorSubject<number>(this.myAnimals.length);
+  count$ = this.countSubject.asObservable();
+
   addAnimal(newAnimal: Animal) {
     this.myAnimals = [...this.myAnimals, newAnimal];
+    this.countSubject.next(this.myAnimals.length);
     this.myAnimalsSubject.next(this.myAnimals);
   }
 
-  deleteAnimal(animal: Animal) {
-    this.myAnimals = this.myAnimals.filter(a => a != animal);
+  deleteAnimal(animalToRemove: Animal) {
+    this.myAnimals = this.myAnimals.filter(animal => animal !== animalToRemove);
+    this.countSubject.next(this.myAnimals.length);
     this.myAnimalsSubject.next(this.myAnimals);
   }
 }

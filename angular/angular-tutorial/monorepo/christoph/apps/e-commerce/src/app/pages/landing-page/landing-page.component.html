@@ -1,62 +1,106 @@
-<mat-toolbar>
+<app-slider-images></app-slider-images>
+
+<app-advantages></app-advantages>
+
+<mat-tab-group dynamicHeight color="primary">
+  <mat-tab label="Newest">
+    <div fxlayout="row wrap" fxLayoutGap="10px grid" class="mat-card-container">
+      <div fxFlex="25%" *ngFor="let num of [1,2,3,4,5,6,7,8]">
+        <mat-card>
+          <mat-card-header>
+            <img mat-card-image [src]="images[0].source" alt="">
+          </mat-card-header>
+          <mat-card-content>
+            <mat-card-title>
+            <a>Buy</a>
+          </mat-card-title>
+            <mat-card-subtitle>30 €</mat-card-subtitle>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button>Buy</button>
+            <button mat-button>On Wishlist</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Bestselling">
+    <div fxlayout="row wrap" fxLayoutGap="10px grid" class="mat-card-container">
+      <div fxFlex="25%" *ngFor="let num of [1,2,3,4,5,6,7,8]">
+        <mat-card>
+          <mat-card-header>
+            <img mat-card-image [src]="images[0].source" alt="">
+          </mat-card-header>
+          <mat-card-content>
+            <mat-card-title>
+            <a>Buy</a>
+          </mat-card-title>
+            <mat-card-subtitle>30 €</mat-card-subtitle>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button>Buy</button>
+            <button mat-button>On Wishlist</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="For You">
+    <div fxlayout="row wrap" fxLayoutGap="10px grid" class="mat-card-container">
+      <div fxFlex="25%" *ngFor="let num of [1,2,3,4,5,6,7,8]">
+        <mat-card>
+          <mat-card-header>
+            <img mat-card-image [src]="images[0].source" alt="">
+          </mat-card-header>
+          <mat-card-content>
+            <mat-card-title>
+            <a>Buy</a>
+          </mat-card-title>
+            <mat-card-subtitle>30 €</mat-card-subtitle>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button>Buy</button>
+            <button mat-button>On Wishlist</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>
+
+<div class="showAll">
+  <button routerLink="/products" mat-raised-button color="primary">Show all products</button>
+</div>
+
+<div class="container">
+  <div fxLayout="row" class="imageAdvertising">
+    <mat-card fxLayoutGap="10px">
+      <img mat-card-image src="../../../assets/images/hammer.jpg" alt="Angebot">
+    </mat-card>
+    <mat-card>
+      <img mat-card-image src="../../../assets/images/hammer.jpg" alt="Angebot">
+    </mat-card>
+  </div>
+</div>
+
+<mat-toolbar color="primary" class="aboveFooterContainer">
   <mat-toolbar-row>
-    <div class="container">
-      <div>
-        <mat-icon fontIcon="home"></mat-icon>
-        <span>First Five Orders on 30% Discount</span>
+    <div class="container" fxLayout="row">
+      <div class="newsletterMessage" fxLayout="row">
+        <mat-icon fontIcon="message"></mat-icon>
+        <span>Get new offers via Email</span>
       </div>
-      <div class="flexExpand"></div>
-      <div class="headerAuth">
-      <button mat-button [matMenuTriggerFor]="menuAuth">My Account<mat-icon>keyboard_arrow_down</mat-icon></button>
-      <mat-menu #menuAuth="matMenu">
-        <button mat-menu-item routerLink="/login">Login</button>
-        <button mat-menu-item routerLink="/register">Register</button>
-      </mat-menu>
-      <button mat-button routerLink="/wishlist">My Wishlist</button>
-      <a mat-button><mat-icon>add_shopping_cart</mat-icon>0,00 (0 Item)</a>
-    </div>
-    </div>
-  </mat-toolbar-row>
-  <mat-toolbar-row class="toolbarWhite">
-    <div class="container">
-      <h2 class="homeIcon">Ecommerce Shop</h2>
-      <span class="flexExpand"></span>
-      <div class="headerBlock">
-        <div class="blockHalf">
-          <mat-icon>perm_phone_msg</mat-icon>
-          <div class="blockhalfDetail">
-            <h3>Call us for support</h3>
-            <p>123456789</p>
-          </div>
-        </div>
+      <form [formGroup]="newsletter" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+          <input type="email" matInput formControlName="newsletter" class="newsletterInput">
+          <button mat-raised-button type="submit" color="warn">Sign Up</button>
+        </mat-form-field>
+      </form>
+      <div class="icons">
+        <fa-icon [icon]="twitter"></fa-icon>
+        <fa-icon [icon]="facebook"></fa-icon>
+        <fa-icon [icon]="instagram"></fa-icon>
       </div>
-      <div class="blockHalf">
-        <mat-icon>directions_car</mat-icon>
-        <div class="blockhalfDetail">
-          <h3>Free Shipping</h3>
-          <p>Order above 50€</p>
-              </div>
-            </div>
-          </div>
-          <span class="flexExpand"></span>
-          <div class="headerBlockRight"></div>
-          <div class="headerBlock">
-            <div class="headerBlock">
-            <h5>Currency - </h5>
-            <button mat-button [matMenuTriggerFor]="currencyMenu"> EUR <mat-icon>keyboard_arrow_down</mat-icon></button>
-            <mat-menu #currencyMenu="matMenu">
-              <button mat-menu-item>EUR</button>
-              <button mat-menu-item>USD</button>
-            </mat-menu>
-          </div>
-          <div class="headerBlock">
-            <h5 class="secondHeader">Language - </h5>
-            <button mat-button [matMenuTriggerFor]="languageMenu"> Deutsch <mat-icon>keyboard_arrow_down</mat-icon></button>
-            <mat-menu #languageMenu="matMenu">
-              <button mat-menu-item>Deutsch</button>
-              <button mat-menu-item>English</button>
-            </mat-menu>
-          </div>
-        </div>
+    </div>
   </mat-toolbar-row>
 </mat-toolbar>

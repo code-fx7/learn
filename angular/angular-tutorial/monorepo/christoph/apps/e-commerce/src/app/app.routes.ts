@@ -7,6 +7,8 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
 import { LoginComponent } from './ui/login/login.component';
 import { RegisterComponent } from './ui/register/register.component';
 import { WishlistComponent } from './ui/wishlist/wishlist.component';
+import { ProductsComponent } from './ui/products/products.component';
+import { ShoppingCardComponent } from './ui/shopping-card/shopping-card.component';
 
 
 export const appRoutes: Route[] = [
@@ -40,5 +42,13 @@ export const appRoutes: Route[] = [
   {
     path: 'dashboard',
     component: DashboardComponent
+  },
+  {
+    path: 'products',
+    component: ProductsComponent
+  },
+  {
+    path: 'cart',
+    component: ShoppingCardComponent
   }
 ]

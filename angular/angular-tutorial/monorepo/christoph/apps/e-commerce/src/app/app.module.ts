@@ -18,7 +18,10 @@ import { NavigationComponent } from './ui/navigation/navigation.component';
 import { RegisterComponent } from './ui/register/register.component';
 import { SliderImagesComponent } from './ui/slider-images/slider-images.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ShoppingCardComponent } from './ui/shopping-card/shopping-card.component';
+import { ProductsComponent } from './ui/products/products.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +37,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NavigationComponent,
     RegisterComponent,
     SliderImagesComponent,
+    ShoppingCardComponent,
+    ProductsComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -42,6 +47,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MaterialModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
+    FlexLayoutModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

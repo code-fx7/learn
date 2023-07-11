@@ -1,0 +1,60 @@
+.container {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.action mat-icon {
+  margin-right: 5px;
+}
+
+.container h2 {
+  position: absolute;
+  top: -35%;
+}
+
+.homeIcon {
+  cursor: pointer;
+}
+
+.flexExpand {
+  flex: 1 1 auto;
+}
+
+.toolbarWhite {
+  background-color: white;
+}
+
+.headerBlock {
+  display: flex;
+  flex-direction: row;
+  font-size: small;
+}
+
+.blockHalf {
+  margin-right: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.blockHalf mat-icon {
+  margin-right: 10px;
+  margin-top: 5%;
+}
+
+.blockHalf h3, p {
+  font-size: small;
+  margin: 0;
+}
+
+.headerBlockRight {
+  margin-top: 15px;
+}
+
+.headerBlock .secondHeader {
+  border-left: 1px solid gray;
+  padding-left: 5px;
+}

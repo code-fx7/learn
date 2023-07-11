@@ -1,56 +1,101 @@
-.container {
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  flex-direction: row;
-  position: relative;
+mat-tab-group {
+  width: 900px;
+  margin: auto;
+  overflow: none;
 }
 
-.container h2 {
-  position: absolute;
-  top: 20%;
-}
-
-.homeIcon {
+mat-card {
   cursor: pointer;
 }
 
-.flexExpand {
-  flex: 1 1 auto;
-}
-
-.toolbarWhite {
-  background-color: white;
-}
-
-.headerBlock {
+mat-card-header img {
+  height: 150px;
   display: flex;
-  flex-direction: row;
-  font-size: small;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.blockHalf {
-  margin-right: 20px;
+.mat-card-container {
+  margin-top: 10px!important;
+}
+
+mat-card-title {
+  font-size: large;
+}
+
+mat-card-title a {
+  text-decoration: none;
+  color: black;
+}
+
+mat-card-title a:hover {
+  color: grey;
+}
+
+mat-card-subtitle {
+  color: red;
+  font-weight: bold;
+}
+
+.showAll {
+  margin-top: 20px!important;
+  margin-bottom: 20px!important;
+  margin: auto;
   display: flex;
-  flex-direction: row;
 }
 
-.blockHalf mat-icon {
-  margin-right: 10px;
-  margin-top: 15%;
+.showAll button {
+  margin: auto;
 }
 
-.blockHalf h3, p {
-  font-size: small;
-  margin: 0;
+.container {
+  width: 700px;
+  margin: auto;
 }
 
-.headerBlockRight {
-  margin-top: 15px;
+.imageAdvertising img {
+  width: 500px;
 }
 
-.headerBlock .secondHeader {
-  border-left: 1px solid gray;
-  padding-left: 5px;
+.container mat-card {
+  margin: 10px;
+}
+
+.aboveFooterContainer {
+  height: 80px;
+}
+
+.newsletterMessage {
+  margin-top: 20px;
+  margin-right: 50px;
+}
+
+.newsletterMessage mat-icon {
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+mat-form-field {
+  width: 400px;
+  color: #000;
+}
+
+mat-form-field input {
+  background: #fff;
+  height: 36px;
+}
+
+mat-form-field button {
+  height: 36px;
+}
+
+.icons {
+  float: right;
+  margin-left: 100px;
+  margin-top: 20px;
+}
+
+.icons fa-icon {
+  margin-right: 5px;
+
 }

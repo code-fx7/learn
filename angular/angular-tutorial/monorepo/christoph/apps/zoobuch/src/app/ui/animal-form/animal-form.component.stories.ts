@@ -19,7 +19,7 @@ export default {
 
 export const Primary = {
   render: (args: AnimalFormComponent) => ({
-    props: {...args,...actionHandlers}
+    props: { ...args, ...actionHandlers}
   }),
   args: {},
 };

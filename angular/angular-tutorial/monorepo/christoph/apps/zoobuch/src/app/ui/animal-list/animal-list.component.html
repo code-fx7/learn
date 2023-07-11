@@ -1,17 +1,16 @@
-<div class="card mt-4">
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>Auflistung aller Tiere</mat-card-title>
+  </mat-card-header>
 
-  <div class="card-header">
-    <h5>Auflistung aller Tiere</h5>
-  </div>
-
-  <div class="card-body">
-    <div *ngFor="let animal of animals">
-      <div>
-        {{animal.name}}
-        ({{animal.type}})
-      <button class="btn btn-danger btn-sm" (click)="handleDelete(animal)">X</button>
-      </div>
-      <hr>
-    </div>
-  </div>
-</div>
+  <mat-card-content>
+<mat-list *ngFor="let animal of animals">
+  <mat-list-item>
+    {{animal.name}}
+    ({{animal.type}})
+    <button class="btn btn-danger btn-sm" (click)="handleDelete(animal)">X</button>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+</mat-list>
+</mat-card-content>
+</mat-card>
