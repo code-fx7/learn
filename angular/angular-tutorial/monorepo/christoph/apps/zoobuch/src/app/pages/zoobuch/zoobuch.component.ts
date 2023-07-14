@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
-import { AnimalStoreService } from '../../service/animal-store.service';
 import { Animal } from '../../animal';
+import { Store } from '@ngrx/store';
+import { selectAnimals } from '../../store/selectors';
+import { AppState } from '../../store/state';
+import { animalAdd, animalDelete } from '../../store/actions';
 
 @Component({
   selector: 'app-zoobuch',
@@ -8,15 +11,15 @@ import { Animal } from '../../animal';
   styleUrls: ['./zoobuch.component.scss'],
 })
 export class ZoobuchComponent { 
-  myAnimals$ = this.animalService.myAnimals$;
+  myAnimals$ = this.store.select(selectAnimals);
 
-  constructor(private animalService: AnimalStoreService) {}
+  constructor(private store: Store<AppState>) {}
 
-  addAnimal(newAnimal: Animal) {
-    this.animalService.addAnimal(newAnimal);
+  addAnimal(animal: Animal) {
+    this.store.dispatch(animalAdd({ animal }));
   }
 
   deleteAnimal(animal: Animal): void {
-    this.animalService.deleteAnimal(animal);
+    this.store.dispatch(animalDelete({ animal }));
   }
 }
