@@ -16,9 +16,5 @@ export class AnimalFormComponent {
 
   handleAdd(): void {
     this.addAnimal.emit(this.newAnimal);
-    this.newAnimal = {
-      name: '',
-      type: ''
-    };
   }
 }

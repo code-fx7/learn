@@ -6,9 +6,6 @@ import { appRoutes } from './app.routes';
 import { ZoobuchComponent } from './pages/zoobuch/zoobuch.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UiModule } from './ui/ui.module';
-import { StoreModule } from '@ngrx/store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { reducers } from './store/reducers';
 
 @NgModule({
   declarations: [
@@ -19,9 +16,7 @@ import { reducers } from './store/reducers';
     BrowserModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
     BrowserAnimationsModule,
-    UiModule,
-    StoreModule.forRoot(reducers),
-    StoreDevtoolsModule.instrument({maxAge: 15})
+    UiModule
   ],
   providers: [],
   bootstrap: [AppComponent],
