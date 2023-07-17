@@ -1,0 +1,33 @@
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
+import { StoreModule } from '@ngrx/store';
+import { NotificationDemoComponent } from './notification-demo/notification-demo.component';
+import { NotificationRoutingModule } from './notification-routing.module';
+import { NotificationsComponent } from '../notification/notification/notification.component';
+import { notificationsReducer, NOTIFICATION_STATE } from './state/notification.reducer';
+
+@NgModule({
+  declarations: [NotificationsComponent, NotificationDemoComponent],
+  imports: [
+    CommonModule,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    NotificationRoutingModule,
+    StoreModule.forFeature(NOTIFICATION_STATE, notificationsReducer),
+  ],
+  exports: [NotificationsComponent],
+})
+export class NotificationModule {}
+
+export * from '../notification/notification/notification.component';
+export * from './state/notification.actions';
+export * from './state/notification.model';
+export * from './state/notification.selectors';

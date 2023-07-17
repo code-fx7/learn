@@ -1,0 +1,27 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.container {
+  flex: 1;
+
+  .favorites {
+    width: 15rem;
+    overflow: hidden;
+  }
+
+  .notifications {
+    width: 25rem;
+    overflow: hidden;
+  }
+
+  .content {
+    padding: 1rem;
+  }
+}

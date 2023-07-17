@@ -1,0 +1,41 @@
+<div>
+  <h2>Notification</h2>
+
+  <button mat-raised-button color="primary" (click)="addNotification()">Add a Notification</button>
+</div>
+
+<mat-card>
+  <mat-card-header><mat-card-title>Updatable Notification</mat-card-title></mat-card-header>
+  <mat-card-content>
+    <mat-form-field>
+      <mat-label>Text</mat-label>
+      <input #input matInput />
+    </mat-form-field>
+  </mat-card-content>
+  <mat-card-actions>
+    <button
+      mat-button
+      color="primary"
+      [disabled]="addedUpdatable$ | async"
+      (click)="addUpdatableNotification(input.value)"
+    >
+      Add
+    </button>
+    <button
+      mat-button
+      color="primary"
+      [disabled]="(addedUpdatable$ | async) === false"
+      (click)="updateNotification(input.value)"
+    >
+      Update
+    </button>
+    <button
+      mat-button
+      color="warn"
+      [disabled]="(addedUpdatable$ | async) === false"
+      (click)="delete()"
+    >
+      Delete
+    </button>
+  </mat-card-actions>
+</mat-card>

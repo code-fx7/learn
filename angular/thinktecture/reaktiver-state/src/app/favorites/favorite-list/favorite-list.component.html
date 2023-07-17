@@ -1,0 +1,10 @@
+<mat-list>
+  <div mat-subheader>Favorites</div>
+  <mat-list-item *ngFor="let favorite of favorites$ | async" class="item">
+    <div matListItemTitle>{{ favorite.caption }}</div>
+    <div matListItemLine *ngIf="favorite.subCaption">{{ favorite.subCaption }}</div>
+    <button mat-icon-button (click)="toggle(favorite)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-list-item>
+</mat-list>

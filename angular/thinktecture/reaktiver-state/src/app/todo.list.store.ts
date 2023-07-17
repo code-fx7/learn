@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
 import { ComponentStore, tapResponse } from '@ngrx/component-store';
-import { TodoListItem } from '../todo.model';
+import { TodoListItem } from './todo/todo.model';
 import { Observable, switchMap } from "rxjs";
-import { TodoService } from "./todo.service";
+import { TodoService } from "./todo/todo.service";
 
 interface TodoListState {
   id: string;
