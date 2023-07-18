@@ -1,6 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Hamster } from './hamster';
-import { HamsterStoreService } from './service/hamster-store.service';
+import { selectHamsters } from './store/selector';
+import { AppState } from './store/state';
+import { hamsterAdd } from './store/actions';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +12,11 @@ import { HamsterStoreService } from './service/hamster-store.service';
 })
 
 export class AppComponent {
-  constructor(private hamsterStoreService: HamsterStoreService) {}
+  hamsters$ = this.store.select(selectHamsters);
 
-  addHamster(newHamster: Hamster) {
-    this.hamsterStoreService.addHamster(newHamster);
+  constructor(private store: Store<AppState>) {}
+
+  addHamster(hamster: Hamster) {
+    this.store.dispatch(hamsterAdd({ hamster }));
   }
 }
