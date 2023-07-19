@@ -8,7 +8,8 @@
   <mat-list-item>
     {{animal.name}}
     ({{animal.type}})
-    <button class="btn btn-danger btn-sm" (click)="handleDelete(animal)">X</button>
+    <button class="btn btn-primary btn-sm" (click)="handleEdit(animal)">Editieren</button>
+    <button class="btn btn-danger btn-sm" (click)="handleDelete(animal)">Löschen</button>
   </mat-list-item>
   <mat-divider></mat-divider>
 </mat-list>

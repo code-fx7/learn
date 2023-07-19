@@ -6,7 +6,12 @@ export const animalDelete = createAction(
   props<{animal: Animal}>()
 );
 
-export const animalAdd = createAction(
-  '[Zoobuch] addAnimal',
+export const animalSave = createAction(
+  '[Zoobuch] saveAnimal',
   props<{animal: Animal}>()
+);
+
+export const animalEdit = createAction(
+  '[Zoobuch] editAnimal',
+  props<{animalId: string}>()
 );

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { Animal } from '../../animal';
 
 @Component({
@@ -6,17 +6,24 @@ import { Animal } from '../../animal';
   templateUrl: './animal-form.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AnimalFormComponent {
-  @Output() addAnimal = new EventEmitter<Animal>();
+export class AnimalFormComponent implements OnChanges {
+  @Output() saveAnimal = new EventEmitter<Animal>();
+  @Input() animal!: Animal;
 
-  newAnimal : Animal = {
+  animalForm: Animal = {
     name: '',
     type: ''
+  };
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['animal']) {
+      this.animalForm = {...changes['animal'].currentValue};
+    }
   }
 
-  handleAdd(): void {
-    this.addAnimal.emit(this.newAnimal);
-    this.newAnimal = {
+  handleSave(): void {
+    this.saveAnimal.emit(this.animalForm);
+    this.animalForm = {
       name: '',
       type: ''
     };

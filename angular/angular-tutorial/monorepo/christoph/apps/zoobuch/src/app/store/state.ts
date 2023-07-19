@@ -2,6 +2,7 @@ import { Animal } from "../animal";
 
 export interface ZoobuchState {
   myAnimals: Array<Animal>
+  selectedAnimal: string | null
 }
 
 export interface AppState {
@@ -10,10 +11,11 @@ export interface AppState {
 
 export const initialState: ZoobuchState = {
   myAnimals: [
-    { name: 'Charlie', type: 'Affe' },
-    { name: 'Schiggi', type: 'Schildkröte' },
-    { name: 'Hedwig', type: 'Eule' },
-    { name: 'Joanne', type: 'Giraffe' },
-    { name: 'Scooby', type: 'Hund' },
-  ]
+    { id: '1', name: 'Charlie', type: 'Affe' },
+    { id: '2', name: 'Schiggi', type: 'Schildkröte' },
+    { id: '3', name: 'Hedwig', type: 'Eule' },
+    { id: '4', name: 'Joanne', type: 'Giraffe' },
+    { id: '5', name: 'Scooby', type: 'Hund' },
+  ],
+  selectedAnimal: null
 }
