@@ -16,6 +16,9 @@ import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './pages/home/home.component';
 import { AddHamsterComponent } from './pages/add-hamster/add-hamster.component';
 import { routes } from './routes';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './store/reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,8 @@ import { routes } from './routes';
     BrowserAnimationsModule,
     MatIconModule,
     FormsModule,
+    StoreModule.forRoot(reducers),
+    StoreDevtoolsModule.instrument({maxAge: 15})
   ],
   providers: [],
   bootstrap: [AppComponent],
