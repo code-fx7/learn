@@ -1,0 +1,20 @@
+<button class="demo" (click)="userService.makeAdmin()">Make Admin</button>
+<button class="demo" (click)="userService.makeUser()">Make User</button>
+<button class="demo" (click)="set()">Set User</button>
+<button class="demo" (click)="reset()">Reset User</button>
+
+<p>{{ user.service.getUser$ | async | json }}</p>
+
+<p>komplexe/einfache Lösung:</p>
+
+<main *ngIf="userService.getUser$ | async as user">
+  <button *ngIf="user.role.includes(Roles.User)">Speichern</button>
+  <button *ngIf="user.role.includes(Roles.Admin)">Löschen</button>
+</main>
+
+<p>semantische/wartbare Lösung:</p>
+
+<main *isAuthenticated>
+  <button *hasRoles="[Roles.User]">Speichern</button>
+  <button *hasRoles="[Roles.User, Roles.Admin]">Löschen</button>
+</main>
