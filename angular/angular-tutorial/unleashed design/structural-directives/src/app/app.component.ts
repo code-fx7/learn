@@ -9,4 +9,21 @@ import { UserService } from './services/user.service';
 })
 export class AppComponent {
   title = 'structural-directives';
+  constructor(private userService: UserService) {}
+
+  makeAdmin() {
+    this.userService.makeAdmin();
+  }
+
+  makeUser() {
+    this.userService.makeUser();
+  }
+
+  set() {
+    this.userService.setUser('John', Role.User)
+  }
+
+  reset() {
+    this.userService.resetUser();
+  }
 }
