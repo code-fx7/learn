@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { AboutComponent } from './about/about.component';
 import { BasketComponent } from './basket/basket.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AboutComponent,
-    BasketComponent
+    BasketComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
