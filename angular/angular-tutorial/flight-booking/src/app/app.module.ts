@@ -11,6 +11,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { OAuthModule } from 'angular-oauth2-oidc';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { OAuthModule } from 'angular-oauth2-oidc';
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot({}, {}),
-    OAuthModule.forRoot()
+    OAuthModule.forRoot(),
+    EffectsModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent]
