@@ -32,7 +32,7 @@ export class FlightSearchComponent {
 
   constructor(
     private store: Store<FlightBookingAppState>,
-    private flightService; FlightService) {
+    private flightService: FlightService) {
     }
 
     ngOnInit(): void {}
