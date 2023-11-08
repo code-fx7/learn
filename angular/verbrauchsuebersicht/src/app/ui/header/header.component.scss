@@ -1,0 +1,12 @@
+.bar {
+  background-color: green;
+}
+
+mat-toolbar {
+  display: flex;
+  flex-direction: row;
+
+  .spacer {
+    flex: 1 1 100%;
+  }
+}
