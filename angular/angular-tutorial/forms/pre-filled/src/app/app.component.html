@@ -1,0 +1,7 @@
+<h1>Pre Filled Form in Angular</h1>
+<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
+  <input type="text" name="email" [ngModel]="userData.email"> <br><br>
+  <input type="text" name="address" [ngModel]="userData.address"> <br><br>
+  <input type="text" name="mobile" [ngModel]="userData.mobile"> <br><br>
+<button type="submit">Submit</button>
+</form>
