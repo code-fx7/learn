@@ -1,0 +1,34 @@
+{
+  "associate": [
+    {
+      "id": 1,
+      "name": "Max Mustermann",
+      "email": "max.muster@mann.de",
+      "mobile": "0123456789",
+      "address": "Musterstraße 1, 12345 Musterstadt",
+      "type": "CUSTOMER",
+      "customerGroup": "level1",
+      "status": true
+    },
+    {
+      "id": 2,
+      "name": "Maxi Mustermann",
+      "email": "max.muster@mann.de",
+      "mobile": "0123456789",
+      "address": "Musterstraße 1, 12345 Musterstadt",
+      "type": "CUSTOMER",
+      "customerGroup": "level1",
+      "status": true
+    },
+    {
+      "id": 3,
+      "name": "Maxus Mustermann",
+      "email": "max.muster@mann.de",
+      "mobile": "0123456789",
+      "address": "Musterstraße 1, 12345 Musterstadt",
+      "type": "CUSTOMER",
+      "customerGroup": "level1",
+      "status": true
+    }
+  ]
+}
