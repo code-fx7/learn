@@ -1,0 +1,12 @@
+<h1>Simple Todo</h1>
+
+<ul>
+  <li *ngFor="let todo of todos">{{todo}}</li>
+</ul>
+
+<form (ngSubmit)="addTodo()">
+
+  <input name="todotext" [(ngModel)]="todoText">
+  <input type="submit" value="Add Todo">  
+  <button (click)="clearLocalStorage()">Clear Local Storage</button>
+</form>
