@@ -1,0 +1,7 @@
+<div class="component">
+	<ng-container [ngTemplateOutlet]="someTemplate" [ngTemplateOutletContext]="context"></ng-container>
+</div>
+
+<div class="component">
+	<ng-container *ngTemplateOutlet="someTemplate; context: context"></ng-container>
+</div>

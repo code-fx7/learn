@@ -1,0 +1,17 @@
+<h2>Learn NG Template</h2>
+
+<ng-template #myTemplate>
+  <h3>This is a template</h3>
+  <p>This is an example paragraph to understand ng-template</p>
+</ng-template>
+
+<!-- ngTemplateOutlet Directive -->
+<div *ngTemplateOutlet="myTemplate"></div>
+
+
+<div>
+  <button *ngIf="product.isAvailable; else notifyMe">Add to Cart</button>
+  <ng-template #notifyMe>
+    <button>Notify Me</button>
+  </ng-template>
+</div>

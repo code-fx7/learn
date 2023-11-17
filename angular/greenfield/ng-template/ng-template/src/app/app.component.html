@@ -1,0 +1,11 @@
+<div class="page">
+  <app-first [someTemplate]="contact"></app-first>
+  <app-second [someTemplate]="contact"></app-second>
+  <app-third [someTemplate]="contact"></app-third>
+
+</div>
+
+<ng-template #contact let-templateTitle="title" let-action="someMethod">
+  <h2>{{ templateTitle }}</h2>
+  <button (click)="action(templateTitle)">Show Title</button>
+</ng-template>
