@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CalendarOptions } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interaction, { DateClickArg } from '@fullcalendar/interaction';
+import deLocale from '@fullcalendar/core/locales/de';
 
 @Component({
   selector: 'app-calendar',
@@ -11,8 +12,17 @@ import interaction, { DateClickArg } from '@fullcalendar/interaction';
 export class CalendarComponent {
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
-    weekends: false,
-    dateClick: this.handleDateClick.bind(this),
+    weekends: true,
+    locale: deLocale,
+    selectable: true,
+    weekNumbers: true,
+    headerToolbar: {
+      right: 'dayGridMonth,dayGridWeek'
+    },
+    footerToolbar:{
+      center: 'today,prev,next'
+    },
+    // dateClick: this.handleDateClick.bind(this),
     plugins: [dayGridPlugin, interaction]
   };
 
