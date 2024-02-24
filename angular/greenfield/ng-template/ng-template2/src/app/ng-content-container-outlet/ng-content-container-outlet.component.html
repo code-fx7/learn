@@ -1,0 +1,64 @@
+<div class="mt-1 mb-2 p-3 bg-success text-white rounded text-center">
+  <h1>Advance Directives</h1>
+  <h3>ng-content, ng-container, ngTemplateOutlet, ng-template</h3>
+</div>
+<div class="row pt-2">
+  <div class="col-3">
+    <app-my-card [headerTitle]="'Student List'">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Sr No</th>
+            <th>Name</th>
+            <th>Contact</th>
+            <th>City</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Sachin</td>
+            <td>576865</td>
+            <td>Mumbai</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Saurabh</td>
+            <td>7658786</td>
+            <td>Pune</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Rahul</td>
+            <td>56765</td>
+            <td>Bhopal</td>
+          </tr>
+        </tbody>
+      </table>
+    </app-my-card>
+  </div>
+  <div class="col-3">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Sr No</th>
+          <th>Name</th>
+          <th>State</th>
+          <th>City</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngIf="!isLoader">
+          <tr *ngFor="let item of studentList">
+            <td>1</td>
+            <td>Sachin</td>
+            <td>576865</td>
+            <td>Mumbai</td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-3"></div>
+  <div class="col-3"></div>
+</div>
